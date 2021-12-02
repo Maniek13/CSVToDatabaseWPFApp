@@ -78,11 +78,6 @@ namespace CSV.Views
         private static void DelayAction(int millisecond)
         {
             var timer = new DispatcherTimer();
-            timer.Tick += delegate
-            {
-                timer.Stop();
-            };
-
             timer.Interval = TimeSpan.FromMilliseconds(millisecond);
             timer.Start();
         }
