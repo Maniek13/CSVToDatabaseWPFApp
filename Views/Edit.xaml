@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:CSV.Views"
         mc:Ignorable="d"
         Title="Edit" Height="450" Width="800">
-    <Grid Name="Employee">
-        <Label Content="Edit data" HorizontalAlignment="Center" Margin="323,10,320.333,0" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.554" Height="44" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
-        <Button Content="Edit" HorizontalAlignment="Center" Margin="369,282,367.333,113.667" VerticalAlignment="Center" Width="57" RenderTransformOrigin="0.542,-3.801" Height="25" Click="EditEmployee"/>
-        <TextBox x:Name="Surname" HorizontalAlignment="Left" Height="23" Margin="323,159,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.481,0.842" Text ="{Binding Surname}" HorizontalContentAlignment="Center" BorderThickness="1"/>
-        <TextBox x:Name="Email" HorizontalAlignment="Left" Height="23" Margin="323,201,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.536,-0.054" Text ="{Binding Email}" HorizontalContentAlignment="Center" BorderThickness="1"/>
-        <TextBox x:Name="Phone_nr" HorizontalAlignment="Left" Height="23" Margin="323,237,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" Text ="{Binding Phone}" HorizontalContentAlignment="Center" BorderThickness="1"/>
-        <Label x:Name="Id" HorizontalAlignment="Center" Margin="338,59,335.333,0" VerticalAlignment="Top" RenderTransformOrigin="0.215,-0.32" Content ="{Binding ID}" Height="34" Width="120" HorizontalContentAlignment="Center" IsEnabled="False" FontWeight="Bold" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="323,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Text ="{Binding Name}" HorizontalContentAlignment="Center"/>
+    <Grid Name="Employee" Background="#FFFFDD05">
+        <Label Content="Editing record" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.554" Height="44" Width="198" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+        <Button Content="Edit" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Width="146" RenderTransformOrigin="0.542,-3.801" Height="25" Click="EditEmployee" BorderBrush="{x:Null}" Background="White"/>
+        <TextBox x:Name="Surname" HorizontalAlignment="Center" Height="23" Margin="0,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146" RenderTransformOrigin="0.481,0.842" Text ="{Binding Surname}" HorizontalContentAlignment="Center" BorderThickness="1"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap"  VerticalAlignment="Center" Width="146" RenderTransformOrigin="0.536,-0.054" Text ="{Binding Email}" HorizontalContentAlignment="Center" BorderThickness="1"/>
+        <TextBox x:Name="Phone_nr" HorizontalAlignment="Center" Height="23" Margin="0,247,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146" Text ="{Binding Phone}" HorizontalContentAlignment="Center" BorderThickness="1"/>
+        <Label x:Name="Id" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.215,-0.32" Content ="{Binding ID}" Height="34" Width="198" HorizontalContentAlignment="Center" IsEnabled="False" FontWeight="Bold" FontSize="14" FontStyle="Italic"/>
+        <TextBox HorizontalAlignment="Center" Height="23" Margin="0,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Text ="{Binding Name}" HorizontalContentAlignment="Center" Background="White"/>
     </Grid>
 </Window>

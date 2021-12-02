@@ -1,4 +1,4 @@
-﻿using CSV.Models;
+﻿using CSV.DBModels;
 using System.Data.Entity;
 
 namespace CSV.Data
