@@ -32,7 +32,7 @@ namespace CSV.ViewModels
             }
             
         }
-        public static List<Employee> LoadFromCsv(string fileName)
+        public static async Task<List<Employee>> LoadFromCsv(string fileName)
         {
             List<Employee> employes = new List<Employee>();
 
@@ -47,30 +47,33 @@ namespace CSV.ViewModels
 
                     csvParser.ReadLine();
 
-                    while (!csvParser.EndOfData)
+                    await Task.Run(() =>
                     {
-                        string[] fields = csvParser.ReadFields();
-
-                        if (fields.Length == 5)
+                        while (!csvParser.EndOfData)
                         {
-                            if (Convert.ToInt32(fields[0]) != 0 && fields[1] != null && fields[2] != null && fields[3] != null && Convert.ToInt64(fields[4]) != 0)
+                            string[] fields = csvParser.ReadFields();
+
+                            if (fields.Length == 5)
                             {
-                                Employee emp = new Employee
+                                if (Convert.ToInt32(fields[0]) != 0 && fields[1] != null && fields[2] != null && fields[3] != null && Convert.ToInt64(fields[4]) != 0)
                                 {
-                                    ID = Convert.ToInt32(fields[0]),
-                                    Name = fields[1],
-                                    Surname = fields[2],
-                                    Email = fields[3],
-                                    Phone = Convert.ToInt64(fields[4])
-                                };
-                                employes.Add(emp);
+                                    Employee emp = new Employee
+                                    {
+                                        ID = Convert.ToInt32(fields[0]),
+                                        Name = fields[1],
+                                        Surname = fields[2],
+                                        Email = fields[3],
+                                        Phone = Convert.ToInt64(fields[4])
+                                    };
+                                    employes.Add(emp);
+                                }
+                            }
+                            else
+                            {
+                                break;
                             }
                         }
-                        else
-                        {
-                            break;
-                        }
-                    }
+                    });
 
                     EmployesController empoCtrl = new EmployesController(new EmployeeContext());
                     empoCtrl.SetManyInDb(employes);

@@ -23,7 +23,7 @@
 
 
         <Grid HorizontalAlignment="Left" Height="100" Margin="23,164,0,0" VerticalAlignment="Top" Width="750"  Visibility="Hidden" Name="Grid" Grid.RowSpan="2">
-            <DataGrid Name="Employes" AutoGenerateColumns="False" Margin="0,-68,0,-93" Background="White" >
+            <DataGrid Name="Employes" AutoGenerateColumns="False" Margin="0,-68,0,-93" Background="White" SelectionChanged="selectChange">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding ID}" MinWidth="50" IsReadOnly="True" />
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="150" IsReadOnly="True"/>
