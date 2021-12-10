@@ -49,7 +49,7 @@ namespace CSV.ViewModels
                 {
 
                     csvParser.CommentTokens = new string[] { "#" };
-                    csvParser.SetDelimiters(new string[] { "," });
+                    csvParser.SetDelimiters(new string[] { ";", "," });
                     csvParser.HasFieldsEnclosedInQuotes = true;
 
                     csvParser.ReadLine();
