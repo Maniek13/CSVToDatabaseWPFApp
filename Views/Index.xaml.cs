@@ -30,7 +30,7 @@ namespace CSV.Views
                 LoadCsv.IsEnabled = false;
                 LoadData.IsEnabled = false;
 
-                Grid.Visibility = Visibility.Hidden;
+                Employes.Visibility = Visibility.Hidden;
                 EditBtn.Visibility = Visibility.Hidden;
                 Loading.Visibility = Visibility.Visible;
                 
@@ -48,7 +48,7 @@ namespace CSV.Views
 
                     if(_employees != null)
                     {
-                        Grid.Visibility = Visibility.Visible;
+                        Employes.Visibility = Visibility.Visible;
                         EditBtn.Visibility = Visibility.Visible;
                     }
                 
@@ -77,7 +77,7 @@ namespace CSV.Views
                 {
                     Employes.ItemsSource = _employees;
 
-                    Grid.Visibility = Visibility.Visible;
+                    Employes.Visibility = Visibility.Visible;
                     EditBtn.Visibility = Visibility.Visible;
                 }
 
@@ -100,7 +100,7 @@ namespace CSV.Views
             {
                 LoadCsv.IsEnabled = false;
                 LoadData.IsEnabled = false;
-                Grid.Visibility = Visibility.Hidden;
+                Employes.Visibility = Visibility.Hidden;
                 EditBtn.Visibility = Visibility.Hidden;
                 Loading.Visibility = Visibility.Visible;
 
@@ -125,7 +125,7 @@ namespace CSV.Views
                 {
                     Employes.ItemsSource = _employees;
 
-                    Grid.Visibility = Visibility.Visible;
+                    Employes.Visibility = Visibility.Visible;
                     EditBtn.Visibility = Visibility.Visible;
                 }
 

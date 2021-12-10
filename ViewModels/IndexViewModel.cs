@@ -62,7 +62,8 @@ namespace CSV.ViewModels
 
                             if (fields.Length == 5)
                             {
-                                if (Convert.ToInt32(fields[0]) != 0 && fields[1] != null && fields[2] != null && fields[3] != null && Convert.ToInt64(fields[4]) != 0)
+                                if (int.TryParse(fields[0], out int v) && float.TryParse(fields[4], out float f) && 
+                                Convert.ToInt32(fields[0]) != 0 && fields[1] != null && fields[2] != null && fields[3] != null && Convert.ToInt64(fields[4]) != 0)
                                 {
                                     Employee emp = new Employee
                                     {

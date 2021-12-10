@@ -9,40 +9,37 @@
         Title="Index" Height="450" Width="800">
     <Grid Background="#FFFFDD05" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="201*"/>
-            <RowDefinition Height="233*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="CSV files loader" HorizontalAlignment="Left" Margin="302,10,0,0" VerticalAlignment="Top" Height="43" Width="192" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Black" FontSize="22" FontFamily="Segoe UI Black" FontWeight="Bold"/>
-        <Button Content="Load" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Width="112" Click="LoadCSV" BorderBrush="White" Background="White" Name="LoadCsv" Height="20"/>
-        <Button Content="Load all from data" HorizontalAlignment="Left" Margin="656,22,0,0" VerticalAlignment="Top" Width="117" Click="LoadFromData" BorderBrush="White" Background="White" Name="LoadData" Height="20"/>
+        <Label Content="CSV files loader" Margin="276,10,276,0" VerticalAlignment="Top" Height="44" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Black" FontSize="22" FontFamily="Segoe UI Black" FontWeight="Bold"/>
+        <Button Content="Load" Margin="330,53,330,0" VerticalAlignment="Top" Click="LoadCSV" BorderBrush="White" Background="White" Name="LoadCsv" Height="20" MaxWidth="140"/>
+        <Button Content="Load all from data" HorizontalAlignment="Right" Margin="0,22,27,0" VerticalAlignment="Top" Width="117" Click="LoadFromData" BorderBrush="White" Background="White" Name="LoadData" Height="20"/>
 
-        <fa:ImageAwesome Icon="Refresh" Spin="True" Height="100" Margin="0,145,0,0" VerticalAlignment="Top" Grid.RowSpan="2"  HorizontalAlignment="Center" Visibility="Hidden" Name="Loading"/>
+        <fa:ImageAwesome Icon="Refresh" Spin="True" Height="80" Width="80" Visibility="Hidden" Margin="350,142,350,120"  Name="Loading"/>
 
 
-        <Grid HorizontalAlignment="Left" Height="100" Margin="23,164,0,0" VerticalAlignment="Top" Width="750"  Visibility="Hidden" Name="Grid" Grid.RowSpan="2">
-            <DataGrid Name="Employes" AutoGenerateColumns="False" Margin="0,-68,0,-93" Background="White" SelectionChanged="selectChange">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding ID}" MinWidth="50" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="150" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" MinWidth="150" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" MinWidth="250" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Phone nr" Binding="{Binding Phone}" MinWidth="150" IsReadOnly="True"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid >
+
+        <DataGrid Name="Employes" Visibility="Hidden" AutoGenerateColumns="False" Margin="23,97,23,72" Background="White" SelectionChanged="selectChange" Grid.RowSpan="2" MaxWidth="1600" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" MinWidth="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding ID}" MinWidth="50" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" MinWidth="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" MinWidth="250" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Phone nr" Binding="{Binding Phone}" MinWidth="150" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
         <Button Name="EditBtn"
             Content="Edit" 
-            HorizontalAlignment="Center" 
-            Margin="0,180,0,0" 
-            VerticalAlignment="Top" 
-            Width="76" 
+            Margin="362,20,362,30" 
             Click="EditRow" 
             Visibility="Hidden"
-            BorderBrush="White" Background="White" Grid.Row="1" Height="20"
+            BorderBrush="White" Background="White" Grid.Row="1" VerticalAlignment="Bottom" MaxWidth="76" MinHeight="4"
         />
     </Grid>
 </Window>
