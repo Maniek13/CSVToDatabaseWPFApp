@@ -22,7 +22,9 @@ namespace CSV.ViewModels
                 {
                     EmployesController employesController = new EmployesController(new EmployeeContext());
                     var list = await employesController.Show();
+
                     Employees.EmployeeList.AddRange(list);
+
                     return list;
                 }
             }
@@ -34,6 +36,11 @@ namespace CSV.ViewModels
         }
         public static async Task<List<Employee>> LoadFromCsv(string fileName)
         {
+            if (Employees.EmployeeList.Count == 0)
+            {
+                LoadFromData();
+            }
+
             List<Employee> employes = new List<Employee>();
 
             try

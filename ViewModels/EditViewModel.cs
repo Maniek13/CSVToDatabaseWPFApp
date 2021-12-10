@@ -16,7 +16,11 @@ namespace CSV.ViewModels
                 empoCtrl.UpdateOne(employee);
 
                 var em = Employees.EmployeeList.FirstOrDefault(emp => emp.ID == employee.ID);
-                em = employee;
+
+                em.Name = employee.Name;
+                em.Surname = employee.Surname;
+                em.Phone = employee.Phone;
+                em.Email = employee.Email;
 
                 return true;
             }
