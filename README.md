@@ -10,7 +10,9 @@ id,name,surename,email,phone
 
 ...
 
-<img width="250" alt="image" src="https://user-images.githubusercontent.com/47826375/145503949-9ffc7de8-1a65-4a65-a164-b8b87e16db56.png"><img width="250" alt="image" src="https://user-images.githubusercontent.com/47826375/145503987-e24b1a22-8e23-4b1d-aeb9-87e7d51e8aef.png">
+<img width="250" alt="image" src="https://user-images.githubusercontent.com/47826375/145503949-9ffc7de8-1a65-4a65-a164-b8b87e16db56.png">
+or
+<img width="250" alt="image" src="https://user-images.githubusercontent.com/47826375/145503987-e24b1a22-8e23-4b1d-aeb9-87e7d51e8aef.png">
 
 _________________________________________
 
