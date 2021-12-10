@@ -17,7 +17,8 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Label Content="CSV files loader" HorizontalAlignment="Left" Margin="302,10,0,0" VerticalAlignment="Top" Height="43" Width="192" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Black" FontSize="22" FontFamily="Segoe UI Black" FontWeight="Bold"/>
-        <Button Content="Load" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Width="76" Click="LoadCSV" BorderBrush="White" Background="White" Name="LoadCsv" Height="20"/>
+        <Button Content="Load" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Width="112" Click="LoadCSV" BorderBrush="White" Background="White" Name="LoadCsv" Height="20"/>
+        <Button Content="Load all from data" HorizontalAlignment="Left" Margin="656,22,0,0" VerticalAlignment="Top" Width="117" Click="LoadFromData" BorderBrush="White" Background="White" Name="LoadData" Height="20"/>
 
         <fa:ImageAwesome Icon="Refresh" Spin="True" Height="100" Margin="0,145,0,0" VerticalAlignment="Top" Grid.RowSpan="2"  HorizontalAlignment="Center" Visibility="Hidden" Name="Loading"/>
 

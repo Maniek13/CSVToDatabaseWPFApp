@@ -28,23 +28,40 @@ namespace CSV.Views
                 OpenFileDialog openFileDialog = new OpenFileDialog();
 
                 LoadCsv.IsEnabled = false;
+                LoadData.IsEnabled = false;
+
                 Grid.Visibility = Visibility.Hidden;
                 EditBtn.Visibility = Visibility.Hidden;
                 Loading.Visibility = Visibility.Visible;
-                EditBtn.IsEnabled = false;
+                
 
           
                 if (openFileDialog.ShowDialog() == true)
                 {
                     _fileName = openFileDialog.FileName;
-
-                    Thread thread = new Thread(Load)
-                    {
-                        IsBackground = true
-                    };
-
-                    thread.Start();
                 }
+
+                if(_fileName == null)
+                {
+                    LoadCsv.IsEnabled = true;
+                    LoadData.IsEnabled = true;
+
+                    if(_employees != null)
+                    {
+                        Grid.Visibility = Visibility.Visible;
+                        EditBtn.Visibility = Visibility.Visible;
+                    }
+                
+                    Loading.Visibility = Visibility.Hidden;
+                    return;
+                }
+
+                Thread thread = new Thread(CSVLoad)
+                {
+                    IsBackground = true
+                };
+
+                thread.Start();
 
                 await Task.Run(() =>
                 {
@@ -64,9 +81,11 @@ namespace CSV.Views
                     EditBtn.Visibility = Visibility.Visible;
                 }
 
+                _fileName = null;
                 Loading.Visibility = Visibility.Hidden;
                 LoadCsv.IsEnabled = true;
-                LoadCsv.Content = "Load next";
+                LoadData.IsEnabled = true;
+                LoadCsv.Content = "Load next one";
 
             }
             catch (Exception ex)
@@ -75,6 +94,54 @@ namespace CSV.Views
             }
         }
 
+        private async void LoadFromData(object sender, RoutedEventArgs evt)
+        {
+            try
+            {
+                LoadCsv.IsEnabled = false;
+                LoadData.IsEnabled = false;
+                Grid.Visibility = Visibility.Hidden;
+                EditBtn.Visibility = Visibility.Hidden;
+                Loading.Visibility = Visibility.Visible;
+
+                Thread thread = new Thread(DataLoad)
+                {
+                    IsBackground = true
+                };
+
+                thread.Start();
+
+                await Task.Run(() =>
+                {
+                    while (!_loaded)
+                    {
+                        DelayAction(500);
+                    }
+
+                    _loaded = false;
+                });
+
+                if (_employees.Count > 0)
+                {
+                    Employes.ItemsSource = _employees;
+
+                    Grid.Visibility = Visibility.Visible;
+                    EditBtn.Visibility = Visibility.Visible;
+                }
+
+                Loading.Visibility = Visibility.Hidden;
+                LoadCsv.IsEnabled = true;
+                LoadData.IsEnabled = true;
+                LoadCsv.Content = "Load next one";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
         private static void DelayAction(int millisecond)
         {
             var timer = new DispatcherTimer();
@@ -82,9 +149,15 @@ namespace CSV.Views
             timer.Start();
         }
 
-        private async void Load()
+        private async void CSVLoad()
         {
             _employees = await IndexViewModel.LoadFromCsv(_fileName);
+            _loaded = true;
+        }
+
+        private async void DataLoad()
+        {
+            _employees = await IndexViewModel.LoadFromData();
             _loaded = true;
         }
 

@@ -10,7 +10,7 @@ namespace CSV.ViewModels
 {
     public class IndexViewModel
     {
-        public async static Task<List<Employee>> Load()
+        public async static Task<List<Employee>> LoadFromData()
         {
             try
             {
@@ -79,7 +79,23 @@ namespace CSV.ViewModels
                     empoCtrl.SetManyInDb(employes);
                 }
 
-                Employees.EmployeeList.AddRange(employes);
+                employes.ForEach(emp =>
+                {
+                    var temp = Employees.EmployeeList.Find(e => e.ID == emp.ID);
+
+                    if(temp == null)
+                    {
+                        Employees.EmployeeList.Add(emp);
+                    }
+                    else
+                    {
+                        temp.Name = emp.Name;
+                        temp.Surname = emp.Surname;
+                        temp.Phone = emp.Phone;
+                        temp.Email = emp.Email;
+                    }
+                });
+                
                 return employes;
             }
             catch (Exception ex)
