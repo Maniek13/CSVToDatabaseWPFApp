@@ -1,4 +1,4 @@
-# CSVToDatabaseWPFApp
+# Dodawanie kontaktów z plików csv do bazy danych 
 
 1. Add migration
 2. Run
